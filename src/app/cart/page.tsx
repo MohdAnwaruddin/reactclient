@@ -49,7 +49,7 @@ const Page = () => {
     return (
         <div key={"cart"}>
          <h1>Cart page</h1>
-         <div>
+         <div key={"cartContainer"}>
 
             {cartProducts?.map((cartProduct:any)=>{
                         return (
@@ -57,7 +57,7 @@ const Page = () => {
                         )
             })}
             {total>0 && (
-                <div className="total">
+                <div className="total" key={"total"}>
                 <h1>Total price</h1>
                     <h1>${parseFloat(total).toFixed(2)}</h1>  
                 </div>

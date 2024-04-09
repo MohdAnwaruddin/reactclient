@@ -1,4 +1,3 @@
-'use client'
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import "./category.css"
@@ -21,39 +20,35 @@ export default function Page({params}: {params: { category: string }}) {
   const router = useRouter();
   const [products, setProducts] = useState<Product[]>();
 
-useEffect(() => {
-  fetchProducts()
-  
-}, [])
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-useEffect(() => {
-  console.log(products)
-  
-}, [products])
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
- const fetchProducts = async () => {
-
-const productResponse = await axiosInstance.post('/products/fetch-products', {
-    categoryName: (params.category).replace(/-/g, ' ')
-})
+  const fetchProducts = async () => {
+    const productResponse = await axiosInstance.post('/products/fetch-products', {
+      categoryName: (params.category).replace(/-/g, ' ')
+    });
 
     if (productResponse.data.success) {
-      setProducts(productResponse.data.data)      
+      setProducts(productResponse.data.data);      
     }
+  };
 
- }
   return (
     <div className="products-container" key={"products"}>
-        <div className="title"  key={params.category}>
-        <h1 >{params.category.toUpperCase()} PRODUCTS</h1>
-        </div>
-        <div className="products" key="container">
-          {products?.map((product) => (
-           < Card name={product.title} imagePath={product.url} link={`/product/${product._id} `}/>   
-            ))}
-            {products?.length==0 && <h1> No Products Found</h1>}
-        </div>
+      <div className="title" key={params.category}>
+        <h1>{params.category.toUpperCase()} PRODUCTS</h1>
       </div>
-   
+      <div className="products" key="container">
+        {products?.map((product) => (
+          <Card key={product._id} name={product.title} imagePath={product.url} link={`/product/${product._id}`}/>   
+        ))}
+        {products?.length === 0 && <h1>No Products Found</h1>}
+      </div>
+    </div>
   );
 }
