@@ -117,7 +117,7 @@ const Login = () => {
         
       </form>
       <div className="flex flex-col items-center">
-     <h3>Don't have an account?</h3> 
+     <h3>{`Don't have an account?`}</h3> 
      <p className="register-link">
   <Link href='/signup'>
     <span className="text-blue-500 underline cursor-pointer">Register</span>

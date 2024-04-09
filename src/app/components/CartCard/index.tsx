@@ -36,7 +36,7 @@ const Page = ({ title, productQuantity, productId, userId, handleReload, price }
   }, [quantity]);
 
   return (
-    <div className="cart-container border-b border-gray-300 p-4 flex items-center justify-between">
+    <div className="cart-container border-b border-gray-300 p-4 flex items-center justify-between" key={productId}>
    <h3 className="title text-lg font-bold text-black">{title}</h3>
       <div className="flex items-center space-x-2">
         <button

@@ -43,7 +43,7 @@ const productResponse = await axiosInstance.post('/products/fetch-products', {
 
  }
   return (
-    <div className="products-container">
+    <div className="products-container" key={"products"}>
         <div className="title"  key={params.category}>
         <h1 >{params.category.toUpperCase()} PRODUCTS</h1>
         </div>
