@@ -47,7 +47,7 @@ const Page = () => {
    
     
     return (
-        <div>
+        <div key={"cart"}>
          <h1>Cart page</h1>
          <div>
 

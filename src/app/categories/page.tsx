@@ -20,7 +20,7 @@ export default function Page() {
     }
   }
   return (
-    <div > 
+    <div key={"categories-container"}> 
       <div className="categories-container">
         <div className="header1">
         <h1 className="title"> Product Categories</h1>

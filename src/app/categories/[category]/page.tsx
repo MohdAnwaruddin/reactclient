@@ -47,7 +47,7 @@ const productResponse = await axiosInstance.post('/products/fetch-products', {
         <div className="title"  key={params.category}>
         <h1 >{params.category.toUpperCase()} PRODUCTS</h1>
         </div>
-        <div className="products">
+        <div className="products" key="container">
           {products?.map((product) => (
            < Card name={product.title} imagePath={product.url} link={`/product/${product._id} `}/>   
             ))}
